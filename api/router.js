@@ -4,7 +4,7 @@ const Recipe = require('./model');
 const router = express.Router();
 
 router.use('*', (req, res, next) => {
-    res.json(api: 'up')
+res.json({api: 'up'})
 })
 
 router.use((err, req, res, next) => {// eslint-disable-line
@@ -16,9 +16,8 @@ router.use((err, req, res, next) => {// eslint-disable-line
 })
 
 
-
 router.get('/:recipie_id', (req, res, next) => {
-    Recipe.getRecipieById()
+    Recipe.getRecipieByIsd(req.params.recipie_id)
     .then(resource => {
       res.status(200).json(resource);
     })
